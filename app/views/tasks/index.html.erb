@@ -18,7 +18,11 @@
       <% @tasksToday.each do |task| %>
         <tr>
           <td><%= link_to task.name, user_task_path(@user, task)%></td>
-          <td><%= task.duration %> seg</td>
+          <% if @task.duration.nil?  %>
+            <td>0 seg</td>
+          <% else %>
+            <td><%= task.duration %> seg</td>
+          <% end %>
           <td><%= task.created_at %></td>
           <td><%= link_to 'Show', user_task_path(@user, task)%></td>
         </tr>
@@ -38,7 +42,11 @@
       <% @tasks.each do |task| %>
         <tr>
           <td><%= link_to task.name, user_task_path(@user, task)%></td>
-          <td><%= task.duration %> seg</td>
+          <% if @task.duration.nil?  %>
+            <td>0 seg</td>
+          <% else %>
+            <td><%= task.duration %> seg</td>
+          <% end %>
           <td><%= task.created_at %></td>
           <td><%= link_to 'Show', user_task_path(@user, task)%></td>
         </tr>
