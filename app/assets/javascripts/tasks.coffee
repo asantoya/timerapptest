@@ -14,6 +14,7 @@ $(document).ready ->
   $('.resume-timer-btn').on 'click', ->
     console.log 'resuming...'
     $('.timer').timer seconds: $('.timer').text()
+    $('.aux_text').addClass 'hide'
     $(this).addClass 'hide'
     $('.pause-timer-btn, .remove-timer-btn').removeClass 'hide'
     return
