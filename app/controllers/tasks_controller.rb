@@ -50,7 +50,7 @@ class TasksController < ApplicationController
 
   def set_state_tracking
     @task = Task.find(params[:id])
-    @task.update_attributes(,state:params[:state])
+    @task.update_attributes(state:params[:state])
     respond_to do |format|
       format.json {render json: @task.duration}
     end
