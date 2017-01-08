@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Welcome to your tracking App</h1>
+  <div class="hero-unit">
+    <% if current_user %>
+      <h3>MyTracking</h3>
+      </br>
+      <%= image_tag(current_user.profile_image, class: "img-polaroid")%>
+      <p> Hi <%=current_user.name%>! you are signed in, now you can see your <%= link_to "tasks list", user_tasks_path(current_user) %></p>
+    <% else %>
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span2">
+            <a href="http://localhost:3000/auth/twitter">
+              <img src="/images/twitter-button.png"  alt="login through twitter" class="img-polaroid" width="140">
+            </a>
+          </div>
+          <div class="span10">
+            <p>Please press the twitter image to login, you will able to:</p>
+            <ul>
+              <li>View my tasks list.</li>
+              <li>Create new Task</li>
+              <li>Manage taks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

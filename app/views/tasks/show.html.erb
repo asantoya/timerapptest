@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="hero-unit">
+    <h1>Task <%= @task.name %></h1>
+
+
+    <table class="table table-condensed">
+      <tr>
+        <td><strong>Text</strong></td>
+        <td><%= @task.text %></td>
+      </tr>
+      <tr>
+        <td><strong>Created at</strong></td>
+        <td><%= @task.created_at %></td>
+      </tr>
+      <tr>
+        <td><strong>Duration</strong></td>
+        <td>
+          <p name='timer' class='form-control timer'>0 sec</p>
+        </td>
+      </tr>
+    </table>
+    <input type="hidden" class="task" task-id="<%= @task.id %>" user-id="<%= @task.user_id %>">
+    <button class="btn btn-success start-timer-btn" type="button">Start Task</button>
+    <button class='btn btn-success resume-timer-btn hide'>Resume</button>
+    <button class='btn pause-timer-btn hide'>Pause</button>
+    <button class='btn btn-danger remove-timer-btn hide'>Close Task</button>
+  </div>
+</div>  

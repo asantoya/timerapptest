@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>new Task registration</h2>
+
+  <%= form_for ([@user,@task]) do |f| %>
+    <div><%= f.label :name %><br />
+    <%= f.text_field :name %></div>
+
+    <div><%= f.label :text %><br />
+    <%= f.text_field :text %></div>
+
+    <div><%= f.label :duration %><br />
+    <%= f.text_field :duration %></div>
+
+
+    <div><%= f.submit "create task",:class => "btn btn-primary" %></div>
+  <% end %>
+  <br />
+  <%= link_to "Back", user_tasks_path,:class => "btn btn-primary"  %>
+</div>

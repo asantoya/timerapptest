@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>My tasks</h1>
+  <% if @tasks.count<1 %>
+    <p> You haven't registered any task. ¿Do you want to  <%= link_to 'create a new task', new_user_task_path%> now?</p>
+  <% else %>
+    <table class="table table-hover">
+      <tr>
+        <th>name</th>
+        <th>duration</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+ 
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, user_task_path(@user, task)%></td>
+          <td><%= task.duration %></td>
+          <td><%= link_to 'Show', user_task_path(@user, task)%></td>
+          <td><%= link_to 'Edit', edit_user_task_path(@user, task)%></td>
+          <!-- <td>
+            <%= link_to edit_user_task_path(@user, task) do %>
+              <i class="icon-search"></i>
+            <% end %>
+          </td> -->
+          <td><%= link_to 'Delete', user_task_path(@user, task), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br />
+    <%= link_to 'create a new task', new_user_task_path, :class => "btn btn-primary" %>
+  <% end %>
+</div>
