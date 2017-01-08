@@ -29,9 +29,18 @@
       </tr>
     </table>
     <input type="hidden" class="task" task-id="<%= @task.id %>" user-id="<%= @task.user_id %>">
-    <button class="btn btn-success start-timer-btn" type="button">Start Task</button>
-    <button class='btn btn-success resume-timer-btn hide'>Resume</button>
-    <button class='btn pause-timer-btn hide'>Pause</button>
-    <button class='btn btn-danger remove-timer-btn hide'>Close Task</button>
+    
+    <% if @task.duration.nil? %>
+      <button class="btn btn-success start-timer-btn  " type="button">Start Task</button>
+      <button class='btn btn-success resume-timer-btn hide'>Resume</button>
+      <button class='btn pause-timer-btn hide'>Pause</button>
+      <button class='btn btn-danger remove-timer-btn hide'>Close Task</button>
+    <% else %>
+      <button class='btn btn-success resume-timer-btn'>Resume</button>
+      <button class='btn pause-timer-btn hide'>Pause</button>
+      <button class='btn btn-danger remove-timer-btn'>Close Task</button>
+    <% end %>
+
+    
   </div>
 </div>  
