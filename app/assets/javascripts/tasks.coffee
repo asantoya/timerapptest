@@ -12,6 +12,7 @@ $(document).ready ->
     return
   # Init timer resume
   $('.resume-timer-btn').on 'click', ->
+    hasTimer = true
     $('.timer').timer 'resume'
     $(this).addClass 'hide'
     $('.pause-timer-btn, .remove-timer-btn').removeClass 'hide'
