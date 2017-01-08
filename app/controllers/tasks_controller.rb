@@ -20,7 +20,8 @@ class TasksController < ApplicationController
   
   def index
     @user =  User.find(params[:user_id])
-    @tasks = @user.tasks.all
+    @tasks = @user.tasks.where(:created_at =>(Time.now - 1.day))
+    @tasksToday = @user.tasks.where(:created_at == Time.now)
   end
 
   def set_time_tracking
