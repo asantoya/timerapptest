@@ -11,6 +11,7 @@
       <tr>
         <th>Name</th>
         <th>Duration</th>
+        <th>State</th>
         <th>Created At</th>
         <th></th>
       </tr>
@@ -23,18 +24,20 @@
           <% else %>
             <td><%= task.duration %> seg</td>
           <% end %>
+          <td><%= task.state %></td>
           <td><%= task.created_at %></td>
           <td><%= link_to 'Show', user_task_path(@user, task)%></td>
         </tr>
       <% end %>
     </table>
 
-    <h1>My old tasks</h1>
+    <h1>Yesterday and older tasks</h1>
     <br>
     <table class="table table-hover">
       <tr>
         <th>Name</th>
         <th>Duration</th>
+        <th>State</th>
         <th>Created At</th>
         <th></th>
       </tr>
@@ -47,6 +50,7 @@
           <% else %>
             <td><%= task.duration %> seg</td>
           <% end %>
+          <td><%= task.state %></td>
           <td><%= task.created_at %></td>
           <td><%= link_to 'Show', user_task_path(@user, task)%></td>
         </tr>

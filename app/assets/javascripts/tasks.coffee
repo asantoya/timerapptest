@@ -17,6 +17,14 @@ $(document).ready ->
     $('.aux_text').addClass 'hide'
     $(this).addClass 'hide'
     $('.pause-timer-btn, .remove-timer-btn').removeClass 'hide'
+    $.ajax
+      url: '/users/' + userId + '/tasks/' + taskId + '/set_state_tracking'
+      type: 'POST'
+      dataType: 'json'
+      data: 'state': 'open'
+      success: (data) ->
+        console.log 'successfully ' + data
+        return
     return
   # Init timer pause
   $('.pause-timer-btn').on 'click', ->
@@ -29,17 +37,27 @@ $(document).ready ->
       url: '/users/' + userId + '/tasks/' + taskId + '/set_time_tracking'
       type: 'POST'
       dataType: 'json'
-      data: 'duration': $('.timer').data('seconds')
+      data:
+        'duration': $('.timer').data('seconds')
+        'state': 'paused'
       success: (data) ->
         console.log 'successfully ' + data
         return
     return
   # Remove timer
   $('.remove-timer-btn').on 'click', ->
-    hasTimer = false
-    $('.timer').timer 'remove'
+    $('.timer').timer 'pause'
     $(this).addClass 'hide'
-    $('.start-timer-btn').removeClass 'hide'
     $('.pause-timer-btn, .resume-timer-btn').addClass 'hide'
+    $.ajax
+      url: '/users/' + userId + '/tasks/' + taskId + '/set_time_tracking'
+      type: 'POST'
+      dataType: 'json'
+      data:
+        'duration': $('.timer').data('seconds')
+        'state': 'stopped'
+      success: (data) ->
+        console.log 'successfully ' + data
+        return
     return
   return
