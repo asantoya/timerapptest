@@ -22,7 +22,8 @@
           <% if @task.duration.nil? %>
             <p name='timer' class='form-control timer'>0 sec</p>
           <% else %>
-            <p name='timer' class='form-control timer'><%= @task.duration %> sec</p>
+            <p name='timer' class='form-control timer'><%= @task.duration %></p>
+            <span>&nbsp;sec</span>
           <% end %>
           
         </td>
