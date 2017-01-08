@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   console.log 'done'
+  taskId = $('.task').attr('task-id')
+  userId = $('.task').attr('user-id')
   hasTimer = false
   $('.start-timer-btn').click ->
     hasTimer = true
@@ -31,8 +33,6 @@ $(document).ready ->
     $('.timer').timer 'pause'
     $(this).addClass 'hide'
     $('.resume-timer-btn').removeClass 'hide'
-    taskId = $('.task').attr('task-id')
-    userId = $('.task').attr('user-id')
     $.ajax
       url: '/users/' + userId + '/tasks/' + taskId + '/set_time_tracking'
       type: 'POST'
