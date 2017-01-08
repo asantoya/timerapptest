@@ -13,7 +13,7 @@ $(document).ready ->
   # Init timer resume
   $('.resume-timer-btn').on 'click', ->
     console.log 'resuming...'
-    $('.timer').timer 'resume'
+    $('.timer').timer seconds: $('.timer').text()
     $(this).addClass 'hide'
     $('.pause-timer-btn, .remove-timer-btn').removeClass 'hide'
     return
