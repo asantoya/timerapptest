@@ -1,0 +1,16 @@
+<% if flash[:alert] %>
+    <div class="alert alert-warning"><%= flash[:alert] %></div>
+<% end %>
+<div class="container">
+  <h2>Create new Project</h2>
+
+  <%= form_for ([@user, @project]) do |f| %>
+    <div><%= f.label "Project Name" %><br />
+    <%= f.text_field :name %></div>
+
+    <div><%= f.submit "create project",:class => "btn btn-primary" %></div>
+  <% end %>
+  
+  <br />
+  <%= link_to "Back", user_tasks_path,:class => "btn btn-primary"  %>
+</div>

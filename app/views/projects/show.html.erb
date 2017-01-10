@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="container">
+  <div class="hero-unit">
+
+    <h1>Project  <%= @project.name %></h1>
+    <br>
+      <%= link_to 'back to list', user_projects_path(current_user), :class => "btn btn-primary pull-right" %>
+    <br>
+
+
+    <table class="table table-condensed">
+      <% @project_tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, user_task_path(@user, task)%></td>
+          <% if task.duration.nil?  %>
+            <td>0 seg</td>
+          <% else %>
+            <td><%= task.duration %> seg</td>
+          <% end %>
+          <td><%= task.state %></td>
+          <td><%= task.created_at %></td>
+          <td><%= link_to 'Show', user_task_path(@user, task)%></td>
+          <input type="hidden" class="task" task-id="<%= @task.id %>" user-id="<%= @task.user_id %>">
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>  

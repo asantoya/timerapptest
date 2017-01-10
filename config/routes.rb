@@ -9,6 +9,10 @@ Rails.application.routes.draw do
         post :set_state_tracking
       end
     end
+
+    resources :projects do 
+        resources :tasks
+    end
   end
 
   root 'welcome#index'

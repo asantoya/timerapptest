@@ -55,7 +55,7 @@ $(document).ready ->
       dataType: 'json'
       data:
         'duration': $('.timer').data('seconds')
-        'state': 'stopped'
+        'state': 'closed'
       success: (data) ->
         console.log 'successfully ' + data
         return

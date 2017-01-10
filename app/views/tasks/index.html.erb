@@ -1,11 +1,16 @@
 <div class="container">
   <br>
-  <%= link_to 'Create a new task', new_user_task_path, :class => "btn btn-primary pull-right" %>
+  <div class="pull-right">
+    <%= link_to 'Create new project', new_user_project_path, :class => "btn btn-success" %>
+    <%= link_to 'Create a new task', new_user_task_path, :class => "btn btn-primary" %>
+  </div>
+  
   <br>
   <h1>My recent tasks</h1>
   <br>
   <% if @tasksToday.count<1 %>
     <p> You haven't registered any task. ¿Do you want to  <%= link_to 'create a new task', new_user_task_path%> now?</p>
+
   <% else %>
     <table class="table table-hover">
       <tr>
